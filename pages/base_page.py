@@ -6,6 +6,7 @@ class BasePage:
         self.driver = driver
         self._verify_page()
 
+
     def _verify_page(self):
         # Site autotest
         return

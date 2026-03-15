@@ -1,5 +1,4 @@
 import unittest
-from time import sleep
 from test_data.registration_data_generator import RegistrationDataGenerator
 from tests.base_test import BaseTest
 
@@ -22,7 +21,7 @@ class RegistrationTest(BaseTest):
         self.create_account_page.click_register()
         assert self.create_account_page.get_red_banner_message() == """There is 1 error\nlastname is required."""
 
-    @unittest.skip("Temporary skipping")
+    # @unittest.skip("Temporary skipping")
     def testRegistration(self):
         self.create_account_page.choose_gender(self.data.GENDER)
         self.create_account_page.enter_first_name(self.data.FIRST_NAME)
