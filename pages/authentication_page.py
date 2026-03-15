@@ -34,4 +34,7 @@ class AuthenticationPage(BasePage):
         return CreateAccountPage(self.driver)
 
     def _verify_page(self):
+        """
+        Verify that the correct page shown
+        """
         WebDriverWait(self.driver, timeout=10).until(EC.title_is("Login - PrestaShop"))

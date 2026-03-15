@@ -37,24 +37,46 @@ class CreateAccountPage(BasePage):
             self.driver.find_element(*Locators.TITLE_GENDER_FEMALE).click()
 
     def enter_first_name(self, first_name):
+        """
+        Type the first name
+        """
         self.driver.find_element(*Locators.FIRST_NAME).send_keys(first_name)
 
     def enter_last_name(self, last_name):
+        """
+        Type the last name
+        """
         self.driver.find_element(*Locators.LAST_NAME).send_keys(last_name)
 
     def get_entered_email(self):
+        """
+        Get entered email - from the first step
+        :return: Entered email value
+        """
         return self.driver.find_element(*Locators.MAIL).get_attribute("value")
 
     def password(self, password):
+        """
+        Type the password
+        """
         self.driver.find_element(*Locators.PASSWORD).send_keys(password)
 
     def choose_day_of_birth(self, day_of_birth):
+        """
+        Choose the day of birth
+        """
         Select(self.driver.find_element(*Locators.DAYS_OF_BIRTH)).select_by_value(str(day_of_birth))
 
     def choose_month_of_birth(self, month_of_birth):
+        """
+        Choose the month of birth
+        """
         Select(self.driver.find_element(*Locators.MONTH_OF_BIRTH)).select_by_value(str(month_of_birth))
 
     def choose_year_of_birth(self, year_of_birth):
+        """
+        Choose the year of birth
+        """
         Select(self.driver.find_element(*Locators.YEAR_OF_BIRTH)).select_by_value(str(year_of_birth))
 
     def click_register(self):
@@ -66,6 +88,10 @@ class CreateAccountPage(BasePage):
         return MyAccountPage(self.driver)
 
     def get_red_banner_message(self):
+        """
+        Get the red banner message
+        :return: Red banner message Object
+        """
         return self.driver.find_element(*Locators.RED_BANNER).text
 
 
