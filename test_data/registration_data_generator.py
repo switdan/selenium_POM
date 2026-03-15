@@ -16,6 +16,6 @@ class RegistrationDataGenerator:
         self.PASSWORD = self.__fake.password()
         self.DAY = int(self.__fake.day_of_month())
         self.MONTH = int(self.__fake.month())
-        self.YEAR = int(self.__fake.year())
+        self.YEAR = int(self.__fake.date_of_birth().year)
 
 print(RegistrationDataGenerator().MONTH)
