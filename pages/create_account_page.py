@@ -19,7 +19,7 @@ class Locators:
     MONTH_OF_BIRTH = (By.ID, "months")
     YEAR_OF_BIRTH = (By.ID, "years")
     REGISTER_BTN = (By.ID, "submitAccount")
-    RED_BANNER = (By.CSS_SELECTOR, "div.alert.alert-danger")
+    RED_BANNER_NO_PASSWORD = (By.CSS_SELECTOR, "div.alert.alert-danger")
 
 class CreateAccountPage(BasePage):
     """
@@ -85,12 +85,12 @@ class CreateAccountPage(BasePage):
         self.driver.find_element(*Locators.REGISTER_BTN).click()
         return MyAccountPage(self.driver)
 
-    def get_red_banner_message(self):
+    def get_red_banner_message_if_password_missing(self):
         """
         Get the red banner message
         :return: Red banner message Object
         """
-        return self.driver.find_element(*Locators.RED_BANNER).text
+        return self.driver.find_element(*Locators.RED_BANNER_NO_PASSWORD).text
 
 
     def _verify_page(self):

@@ -19,7 +19,7 @@ class RegistrationTest(BaseTest):
         self.create_account_page.choose_month_of_birth(self.data.MONTH)
         self.create_account_page.choose_year_of_birth(self.data.YEAR)
         self.create_account_page.click_register()
-        assert self.create_account_page.get_red_banner_message() == """There is 1 error\nlastname is required."""
+        assert self.create_account_page.get_red_banner_message_if_password_missing() == """There is 1 error\nlastname is required."""
 
     # @unittest.skip("Temporary skipping")
     def testRegistration(self):
