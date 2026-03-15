@@ -14,5 +14,5 @@ class BaseTest(unittest.TestCase):
         self.home_page = HomePage(self.driver)
 
     def tearDown(self):
-        # self.driver.quit()
+        self.driver.quit()
         pass

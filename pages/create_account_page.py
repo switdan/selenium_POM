@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
 from pages.base_page import BasePage
+from pages.my_account_page import MyAccountPage
 from utils.custom_types import Gender
 
 class Locators:
@@ -19,6 +20,8 @@ class Locators:
     DAYS_OF_BIRTH = (By.ID, "days")
     MONTH_OF_BIRTH = (By.ID, "months")
     YEAR_OF_BIRTH = (By.ID, "years")
+    REGISTER_BTN = (By.ID, "submitAccount")
+    RED_BANNER = (By.CSS_SELECTOR, "div.alert.alert-danger")
 
 class CreateAccountPage(BasePage):
     """
@@ -53,6 +56,18 @@ class CreateAccountPage(BasePage):
 
     def choose_year_of_birth(self, year_of_birth):
         Select(self.driver.find_element(*Locators.YEAR_OF_BIRTH)).select_by_value(str(year_of_birth))
+
+    def click_register(self):
+        """
+        Clicks Register and goes to MyAccountPage Page
+        :return: MyAccountPage Object
+        """
+        self.driver.find_element(*Locators.REGISTER_BTN).click()
+        return MyAccountPage(self.driver)
+
+    def get_red_banner_message(self):
+        return self.driver.find_element(*Locators.RED_BANNER).text
+
 
     def _verify_page(self):
         # TODO: Improve this!
