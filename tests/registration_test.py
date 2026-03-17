@@ -1,5 +1,5 @@
 import unittest
-from test_data.registration_data_generator import RegistrationDataGenerator
+from test_data.registration_data import RegistrationDataGenerator
 from tests.base_test import BaseTest
 
 class RegistrationTest(BaseTest):
